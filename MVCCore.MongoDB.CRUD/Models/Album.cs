@@ -12,5 +12,7 @@ namespace MVCCore.MongoDB.CRUD.Models
         public DateTime ReleaseDate { get; set; }
         public int Duration { get; set; }
 
+        public List<Song> Songs { get; set; }
+
     }
 }

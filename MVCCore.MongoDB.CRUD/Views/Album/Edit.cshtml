@@ -10,6 +10,9 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <div class="form-group">
+            @Html.ActionLink("Add Song","Create","Song", new {id = Model.Id}, null)
+        </div>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -38,6 +41,26 @@
         </form>
     </div>
 </div>
+
+@if(Model.Songs != null)
+{
+    <h2>Songs</h2>
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Duration</th>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Songs)
+            {
+               <tr>
+                   <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                   <td>@Html.DisplayFor(modelItem => item.Duration)</td>
+               </tr> 
+            }
+        </tbody>
+    </table>
+}
 
 <div>
     <a asp-action="Index">Back to List</a>
